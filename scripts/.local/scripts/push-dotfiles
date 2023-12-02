@@ -10,6 +10,7 @@ branch=$(git rev-parse --abbrev-ref HEAD)
 echo "On branch '$branch':"
 
 function commit_and_push() {
+    git fetch origin master
     git add -A;
     git status
     read -p "Do you want to commit and push these changes? [Y/n]" -n 1 -r
