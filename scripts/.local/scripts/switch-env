@@ -25,4 +25,5 @@ do
     stow -D $folder
     stow -t ~ $folder
 done
+i3-msg restart
 exit 0
