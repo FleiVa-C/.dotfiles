@@ -9,7 +9,7 @@ fi
 branch=$(git rev-parse --abbrev-ref HEAD)
 echo "On branch '$branch':"
 
-function commit_and_push() {
+function pull_from_master() {
     git add -A;
     git status
     read -p "Do you want to commit and push these changes? [Y/n]" -n 1 -r
@@ -30,16 +30,14 @@ function commit_and_push() {
 
 
 if [ $branch = "master" ]; then
-	echo "merge all to master"
-    git add -A
-    git commit -m "this commit was created automatically"
-    git push origin $branch
+	echo "pull all to master"
+    git pull origin master
 elif [ $branch = "surfacebook" ]; then
 	echo "merging only non setup specific stuff to master"
-    commit_and_push
+    pull_from_master
 elif [ $branch = "surfacebook-dockin" ]; then
 	echo "merging only non setup specific stuff to master"
-    commit_and_push
+    pull_from_master
 else
 	echo "Failed to match branch"
     exit 1
