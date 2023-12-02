@@ -8,7 +8,7 @@ while getopts 'ldh:' OPTION; do
             ;;
         d)
             echo "switching to dockin config"
-            branch=docking
+            branch=surfacebook-dockin
             ;;
         h)
             echo "l = laptop setup, d = docking setup"
